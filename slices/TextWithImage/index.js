@@ -6,18 +6,18 @@ import { Bounded } from '../../components/Bounded'
 
 const TextWithImage = ({ slice }) => {
   const image = slice.primary.image
-  console.log(slice)
+
   return slice.variation === 'leftImage' ? (
     <Bounded as='section' className='bg-white'>
-      <div className='grid grid-cols-1 items-center gap-8 md:grid-cols-2'>
-        <div>
+      <div className='-md:flex-col-reverse flex items-center justify-center'>
+        <div className='-md:mt-[32px] w-full md:mr-[16px] md:w-1/2'>
           {prismicH.isFilled.image(image) && (
             <div className='bg-gray-100'>
               <PrismicNextImage field={image} layout='responsive' />
             </div>
           )}
         </div>
-        <div>
+        <div className='w-full md:ml-[16px] md:w-1/2'>
           <PrismicRichText field={slice.primary.text} />
         </div>
       </div>
